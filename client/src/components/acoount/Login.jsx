@@ -109,7 +109,7 @@ const LoginDialog = ({ classes }) => {
                         } */}
                     </div>
                 </Box>
-            {/* </Box> */}
+            </Box>
         </Dialog>
     )
 }
