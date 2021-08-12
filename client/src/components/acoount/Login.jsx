@@ -1,11 +1,11 @@
-// import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Dialog } from '@material-ui/core';
 import { makeStyles, Typography, List, ListItem, Box, withStyles } from '@material-ui/core';
 
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 
 // import { addUser } from '../../service/api';
-// import { AccountContext } from '../../context/AccountProvider';
+import { AccountContext } from '../../context/AccountProvider';
 
 const useStyle = makeStyles({
     component: {
@@ -54,11 +54,12 @@ const LoginDialog = ({ classes }) => {
     const classname = useStyle();
     const url = 'https://www.ginifab.com/feeds/qr_code/img/qrcode.jpg';
     const clientId='1028070959344-mf57leunvoemm2v3lj8kr2pacpt0223u.apps.googleusercontent.com';
+  const {account ,setAccount}=useContext(AccountContext);
 
 
     const onLoginSuccess = async (res) => {
         console.log('Login Success:', res.profileObj);
-        // setAccount(res.profileObj);
+        setAccount(res.profileObj);
         // setShowloginButton(false);
         // setShowlogoutButton(true);
         // await addUser(res.profileObj);

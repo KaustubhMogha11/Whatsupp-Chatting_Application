@@ -4,7 +4,7 @@ import { AccountContext } from '../context/AccountProvider';
 import { AppBar, Toolbar, makeStyles, Box } from '@material-ui/core';
 //components
 import LoginDialog from './acoount/Login';
-import ChatDialog from './acoount/ChatDialog';
+import ChatDialog from './ChatDialog';
 
 const useStyles = makeStyles({
     component: {
