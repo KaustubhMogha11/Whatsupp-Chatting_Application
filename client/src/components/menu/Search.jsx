@@ -49,7 +49,7 @@ const Search = ({ setText }) => {
             <Box className={classes.searchIcon}>
               <SearchIcon fontSize="small"/>
             </Box>
-            {/* <InputBase
+            <InputBase
               placeholder="Search or start new chat"
               classes={{
                 root: classes.inputRoot,
@@ -57,7 +57,7 @@ const Search = ({ setText }) => {
               }}
               inputProps={{ 'aria-label': 'search' }}
               onChange={(e) => setText(e.target.value)}
-            /> */}
+            />
           </Box>
         </Box>
     )
