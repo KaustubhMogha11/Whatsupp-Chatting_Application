@@ -6,7 +6,7 @@ import { AccountContext } from '../../context/AccountProvider.jsx';
 
 //components
 import HeaderMenu from './HeaderMenu';
-// import InfoDrawer from '../../drawer/Drawer';
+import InfoDrawer from '../drawer/Drawer';
 
 const useStyles = makeStyles({
     header: {
