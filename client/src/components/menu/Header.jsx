@@ -39,24 +39,24 @@ const useStyles = makeStyles({
 const Header = () => {
     const classes = useStyles();
     
-    // const [openDrawer, setOpenDrawer] = useState(false);
+    const [openDrawer, setOpenDrawer] = useState(false);
 
     const { account } = useContext(AccountContext);
     
-    // const toggleDrawer = () => {
-    //     setOpenDrawer(true);
-    // }
+    const toggleDrawer = () => {
+        setOpenDrawer(true);
+    }
 
     return (
         <>
             <Box className={classes.header}>
-                <img src={account.imageUrl} className={classes.avatar} />
+                <img src={account.imageUrl} className={classes.avatar} onClick={()=>toggleDrawer()} />
                 <Box className={classes.chatIcons}>
                     <MessageIcon />
                     <HeaderMenu/>
                 </Box>
             </Box>
-            {/* <InfoDrawer open={openDrawer} setOpen={setOpenDrawer} profile={true} /> */}
+            <InfoDrawer open={openDrawer} setOpen={setOpenDrawer} profile={true} />
         </>
     )
 }
