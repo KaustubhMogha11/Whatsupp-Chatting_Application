@@ -4,7 +4,7 @@ import { makeStyles, Typography, List, ListItem, Box, withStyles } from '@materi
 
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 
-// import { addUser } from '../../service/api';
+import { addUser } from '../../services/api.js';
 import { AccountContext } from '../../context/AccountProvider';
 
 const useStyle = makeStyles({
@@ -62,7 +62,7 @@ const LoginDialog = ({ classes }) => {
         setAccount(res.profileObj);
         // setShowloginButton(false);
         // setShowlogoutButton(true);
-        // await addUser(res.profileObj);
+        await addUser(res.profileObj);
     };
 
     const onLoginFailure = (res) => {
