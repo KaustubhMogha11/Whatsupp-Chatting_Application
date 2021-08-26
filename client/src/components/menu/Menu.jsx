@@ -5,7 +5,7 @@ import { Box } from '@material-ui/core';
 //components
 import Header from './Header';
 import Search from './Search';
-import Conversations from './Conversation.jsx';
+import Conversations from './Conversations.jsx';
 
 const Menu = () => {
     const [text, setText] = useState('');

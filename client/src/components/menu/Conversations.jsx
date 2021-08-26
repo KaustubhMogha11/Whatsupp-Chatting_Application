@@ -5,7 +5,7 @@ import { AccountContext } from '../../context/AccountProvider';
 
 //components
 import Conversation from './Conversation';
-import { getUsers } from '../../../service/api';
+import { getUsers } from '../../services/api';
 
 const useStyles = makeStyles({
     component: {
@@ -29,6 +29,7 @@ const Conversations = ({ text }) => {
             let data = await getUsers();
             let fiteredData = data.filter(user => user.name.toLowerCase().includes(text.toLowerCase()));
             setUsers(fiteredData);
+            
         }
         fetchData();
     }, [text]);
@@ -43,13 +44,15 @@ const Conversations = ({ text }) => {
     return (
         <Box className={classes.component}>
             {
-                users && users.map((user, index) => (
+                 users.map(user => (
+
+
                     user.googleId !== account.googleId && 
                         <>
                             <Conversation user={user} />
-                            {
+                            {/* {
                                 users.length !== (index + 1)  && <Divider className={classes.divider} />
-                            }
+                            } */}
                         </>
                 ))
             }

@@ -63,21 +63,21 @@ const Conversation = ({ user }) => {
     // } 
 
     return (
-        <Box className={classes.component} >
+        <Box className={classes.component}>
             <Box>
                 <img src={url} alt="display picture" className={classes.displayPicture} />
             </Box>
-            {/* <Box style={{width: '100%'}}>
+            <Box style={{width: '100%'}}>
                 <Box className={classes.container}>
                     <Typography>{user.name}</Typography>
-                    <Typography className={classes.timestamp}>
+                    {/* <Typography className={classes.timestamp}>
                         {getTime(new Date(message.timestamp).getHours())}:{getTime(new Date(message.timestamp).getMinutes())}
-                    </Typography>        
+                    </Typography>         */}
                 </Box>
-                <Box>
+                {/* <Box>
                     <Typography className={classes.text}>{message.text}</Typography>
-                </Box>
-            </Box> */}
+                </Box> */}
+            </Box>
         </Box>
     )
 }
