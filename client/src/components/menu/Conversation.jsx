@@ -4,7 +4,7 @@ import { makeStyles, Box, Typography } from "@material-ui/core";
 // import { UserContext } from '../../../context/UserProvider';
 import { AccountContext } from '../../context/AccountProvider';
 
-// import { setConversation, getConversation } from '../../services/api';
+import { setConversation, getConversation } from '../../services/api';
 
 const useStyles = makeStyles({
     component: {
@@ -53,19 +53,19 @@ const Conversation = ({ user }) => {
     //     getConversationMessage();
     // }, [newMessageFlag]);
 
-    // const getUser = async () => {
-    //     setPerson(user);
-    //     await setConversation({ senderId: account.googleId, receiverId: user.googleId });
-    // }
+    const getUser = async () => {
+        // setPerson(user);
+        await setConversation({ senderId: account.googleId, receiverId: user.googleId });
+    }
 
     // const getTime = (time) => {
     //     return time < 10 ? '0' + time : time; 
     // } 
 
     return (
-        <Box className={classes.component}>
+        <Box className={classes.component} onClick={()=> getUser()}>
             <Box>
-                <img src={url} alt="display picture" className={classes.displayPicture} />
+                <img src={user.imgUrl} alt="display picture" className={classes.displayPicture} />
             </Box>
             <Box style={{width: '100%'}}>
                 <Box className={classes.container}>
