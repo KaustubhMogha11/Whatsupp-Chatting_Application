@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react'
 import { makeStyles, Box, Typography } from "@material-ui/core";
 
-// import { UserContext } from '../../../context/UserProvider';
+import { UserContext } from '../../context/UserProvider';
 import { AccountContext } from '../../context/AccountProvider';
 
 import { setConversation, getConversation } from '../../services/api';
@@ -45,16 +45,16 @@ const Conversation = ({ user }) => {
 
     // const [message, setMessage] = useState({});
 
-    // useEffect(() => {
-    //     const getConversationMessage = async() => {
-    //         const data = await getConversation({ sender: account.googleId, receiver: user.googleId });
-    //         setMessage({ text: data.message, timestamp: data.updatedAt });
-    //     }
-    //     getConversationMessage();
-    // }, [newMessageFlag]);
+    useEffect(() => {
+        const getConversationMessage = async() => {
+            const data = await getConversation({ sender: account.googleId, receiver: user.googleId });
+            // setMessage({ text: data.message, timestamp: data.updatedAt });
+        }
+        getConversationMessage();
+    }, [newMessageFlag]);
 
     const getUser = async () => {
-        // setPerson(user);
+        setPerson(user);
         await setConversation({ senderId: account.googleId, receiverId: user.googleId });
     }
 
