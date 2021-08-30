@@ -3,7 +3,7 @@ import express from 'express';
 
 import { newConversation, getConversation } from '../controller/conversation-controller.js';
 import { addUser ,getUser } from '../controller/user-controller.js';
-import { getMessage }from '../controller/message-controller.js';
+import { getMessage, newConversation }from '../controller/message-controller.js';
 
 
 const route = express.Router();

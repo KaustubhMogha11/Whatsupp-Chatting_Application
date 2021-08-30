@@ -49,11 +49,11 @@ const ChatDialog = ({ classes }) => {
                 <Box className={classname.leftComponent}>
                     <Menu/>
                 </Box>
-                {/* <Box className={classname.rightComponent}>
+                <Box className={classname.rightComponent}>
                     {
                         Object.keys(person).length  ? <ChatBox/> : <EmptyChat />
                     }
-                </Box> */}
+                </Box>
              <Box className={classname.rightComponent}>
              <ChatBox/>
              </Box>  
