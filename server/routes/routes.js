@@ -3,7 +3,7 @@ import express from 'express';
 
 import { newConversation, getConversation } from '../controller/conversation-controller.js';
 import { addUser ,getUser } from '../controller/user-controller.js';
-import { getMessage, newConversation }from '../controller/message-controller.js';
+import { getMessage,newMessage }from '../controller/message-controller.js';
 
 
 const route = express.Router();
@@ -14,7 +14,7 @@ route.get('/users', getUser);
 route.post('/conversation/add', newConversation);
 route.post('/conversation/get', getConversation);
 
-// route.post('/message/add', newMessage);
+route.post('/message/add', newMessage);
 route.get('/message/get/:id', getMessage);
 
 export default route;

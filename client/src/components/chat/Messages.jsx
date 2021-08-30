@@ -36,7 +36,7 @@ const useStyles = makeStyles({
 const Messages = ({ person, conversation }) => {
     const classes = useStyles();
 
-    // const [messages, setMessages] = useState([]);
+    const [messages, setMessages] = useState([]);
     // const [incomingMessage, setIncomingMessage] = useState(null);
     const [value, setValue] = useState();
 
@@ -58,7 +58,7 @@ const Messages = ({ person, conversation }) => {
     useEffect(() => {
         const getMessageDetails = async () => {
             let data = await getMessages(conversation._id);
-            // setMessages(data);
+            setMessages(data);
         }
         getMessageDetails();
     }, [conversation?._id, person._id, newMessageFlag]);

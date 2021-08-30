@@ -54,9 +54,9 @@ const ChatDialog = ({ classes }) => {
                         Object.keys(person).length  ? <ChatBox/> : <EmptyChat />
                     }
                 </Box>
-             <Box className={classname.rightComponent}>
+             {/* <Box className={classname.rightComponent}>
              <ChatBox/>
-             </Box>  
+             </Box>   */}
                
             
             </Box>
