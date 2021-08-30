@@ -58,8 +58,8 @@ const Footer = ({ sendText, value, setValue }) => {
                         input: classes.inputInput,
                     }}
                     inputProps={{ 'aria-label': 'search' }}
-                    // onChange={(e) => setValue(e.target.value)}
-                    // onKeyPress={(e) => sendText(e)}
+                    onChange={(e) => setValue(e.target.value)}
+                    onKeyPress={(e) => sendText(e)}
                     value={value}
                 />
             </Box>
@@ -69,4 +69,4 @@ const Footer = ({ sendText, value, setValue }) => {
     )
 }
 
-export default Foote
+export default Footer;

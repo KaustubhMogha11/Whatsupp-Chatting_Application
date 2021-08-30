@@ -40,7 +40,7 @@ const Conversation = ({ user }) => {
     const classes = useStyles();
     const url = user.imageUrl || 'https://www.kindpng.com/picc/m/78-785827_user-profile-avatar-login-account-male-user-icon.png';
     
-    // const { setPerson } = useContext(UserContext);
+    const { setPerson } = useContext(UserContext);
     const { account, socket, newMessageFlag }  = useContext(AccountContext);
 
     // const [message, setMessage] = useState({});

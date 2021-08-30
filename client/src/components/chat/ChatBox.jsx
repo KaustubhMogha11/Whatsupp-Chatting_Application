@@ -3,7 +3,7 @@ import { Box } from '@material-ui/core';
 
 import { UserContext } from '../../context/UserProvider';
 import { AccountContext } from '../../context/AccountProvider';
-import { getConversation, newMessages } from '../../service/api';
+import { getConversation, newMessages } from '../../services/api';
 
 //components
 import ChatHeader from './ChatHeader';

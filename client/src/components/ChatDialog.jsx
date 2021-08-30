@@ -1,12 +1,12 @@
 import { useContext } from 'react';
 import { Dialog, makeStyles, withStyles, Box } from '@material-ui/core';
 
-// import { UserContext } from '../../context/UserProvider';
+import { UserContext } from '../context/UserProvider';
 
 //components
 import Menu from './menu/Menu';
-// import ChatBox from './chat/ChatBox';
-// import EmptyChat from './chat/EmptyChat';
+import ChatBox from './chat/ChatBox';
+import EmptyChat from './chat/EmptyChat';
 
 const useStyles = makeStyles({
     component: {
@@ -37,7 +37,7 @@ const style = {
 const ChatDialog = ({ classes }) => {
     const classname = useStyles();
 
-    // const { person } = useContext(UserContext);
+    const { person } = useContext(UserContext);
     
     return (
         <Dialog 
@@ -54,6 +54,11 @@ const ChatDialog = ({ classes }) => {
                         Object.keys(person).length  ? <ChatBox/> : <EmptyChat />
                     }
                 </Box> */}
+             <Box className={classname.rightComponent}>
+             <ChatBox/>
+             </Box>  
+               
+            
             </Box>
         </Dialog>
     )

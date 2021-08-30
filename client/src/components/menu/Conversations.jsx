@@ -44,15 +44,13 @@ const Conversations = ({ text }) => {
     return (
         <Box className={classes.component}>
             {
-                 users.map(user => (
-
-
+                users && users.map((user, index) => (
                     user.googleId !== account.googleId && 
                         <>
                             <Conversation user={user} />
-                            {/* {
+                            {
                                 users.length !== (index + 1)  && <Divider className={classes.divider} />
-                            } */}
+                            }
                         </>
                 ))
             }
