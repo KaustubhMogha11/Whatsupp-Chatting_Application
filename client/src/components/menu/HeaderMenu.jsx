@@ -4,12 +4,12 @@ import { Menu, MenuItem, makeStyles } from '@material-ui/core';
 
 import { GoogleLogout } from 'react-google-login';
 
-// import { UserContext } from '../../../context/UserProvider';
+import { UserContext } from '../../context/UserProvider';
 import { AccountContext } from '../../context/AccountProvider';
 import { clientId } from '../constants/data.js';
 
-//components
-// import InfoDrawer from '../../drawer/Drawer';
+// components
+import InfoDrawer from '../drawer/Drawer';
 
 const useStyle = makeStyles({
     menuItem: {
@@ -33,7 +33,7 @@ const HeaderMenu = () => {
     const [openDrawer, setOpenDrawer] = useState(false);
     
     const { setAccount, setShowloginButton, showlogoutButton, setShowlogoutButton } = useContext(AccountContext);
-    // const { setPerson } = useContext(UserContext);
+    const { setPerson } = useContext(UserContext);
 
 
     const handleClick = (event) => {
@@ -50,12 +50,12 @@ const HeaderMenu = () => {
         // setShowlogoutButton(false);
         // setShowloginButton(true);
         setAccount('');
-        // setPerson({});
+        setPerson({});
     };
 
-    // const toggleDrawer = () => {
-    //     setOpenDrawer(true);
-    // }
+    const toggleDrawer = () => {
+        setOpenDrawer(true);
+    }
 
 
 
@@ -89,7 +89,7 @@ const HeaderMenu = () => {
                     </GoogleLogout>
                 </MenuItem>
             </Menu>
-            {/* <InfoDrawer open={openDrawer} setOpen={setOpenDrawer} profile={true} /> */}
+            <InfoDrawer open={openDrawer} setOpen={setOpenDrawer} profile={true} />
         </>
     )
 }

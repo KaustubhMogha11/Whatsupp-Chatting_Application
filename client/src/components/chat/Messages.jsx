@@ -1,13 +1,14 @@
+
+import { io } from 'socket.io-client';
 import { useState, useEffect, useContext, useRef } from 'react';
 import { Box, makeStyles } from '@material-ui/core';
 
-// import { io } from 'socket.io-client';
 
-import { getMessages} from '../../services/api';
+import { getMessages, newMessages} from '../../services/api';
 import { AccountContext } from '../../context/AccountProvider';
 
 //components
-// import Message from './Message';
+import Message from './Message';
 import Footer from './Footer';
 
 const useStyles = makeStyles({
@@ -37,23 +38,23 @@ const Messages = ({ person, conversation }) => {
     const classes = useStyles();
 
     const [messages, setMessages] = useState([]);
-    // const [incomingMessage, setIncomingMessage] = useState(null);
+    const [incomingMessage, setIncomingMessage] = useState(null);
     const [value, setValue] = useState();
 
-    // const scrollRef = useRef();
+    const scrollRef = useRef();
 
     const { account, socket, newMessageFlag, setNewMessageFlag } = useContext(AccountContext);
 
-    // useEffect(() => {
+    useEffect(() => {
         
-    //     socket.current.on('getMessage', data => {
-    //         setIncomingMessage({
-    //             sender: data.senderId,
-    //             text: data.text,
-    //             createdAt: Date.now()
-    //         })
-    //     })
-    // }, []);
+        socket.current.on('getMessage', data => {
+            setIncomingMessage({
+                sender: data.senderId,
+                text: data.text,
+                createdAt: Date.now()
+            })
+        })
+    }, []);
     
     useEffect(() => {
         const getMessageDetails = async () => {
@@ -63,17 +64,17 @@ const Messages = ({ person, conversation }) => {
         getMessageDetails();
     }, [conversation?._id, person._id, newMessageFlag]);
 
-    // useEffect(() => {
-    //     scrollRef.current?.scrollIntoView({ transition: "smooth" })
-    // }, [messages]);
+    useEffect(() => {
+        scrollRef.current?.scrollIntoView({ transition: "smooth" })
+    }, [messages]);
 
-    // useEffect(() => {
-    //     incomingMessage && conversation?.members?.includes(incomingMessage.sender) && 
-    //         setMessages((prev) => [...prev, incomingMessage]);
+    useEffect(() => {
+        incomingMessage && conversation?.members?.includes(incomingMessage.sender) && 
+            setMessages((prev) => [...prev, incomingMessage]);
         
-    // }, [incomingMessage, conversation]);
+    }, [incomingMessage, conversation]);
 
-    // const receiverId = conversation?.members?.find(member => member !== account.googleId);
+    const receiverId = conversation?.members?.find(member => member !== account.googleId);
     
     const sendText = async (e) => {
         let code = e.keyCode || e.which;
@@ -86,22 +87,22 @@ const Messages = ({ person, conversation }) => {
                 text: value
             };
 
-            // socket.current.emit('sendMessage', {
-            //     senderId: account.googleId,
-            //     receiverId,
-            //     text: value
-            // })
+            socket.current.emit('sendMessage', {
+                senderId: account.googleId,
+                receiverId,
+                text: value
+            })
 
             await newMessages(message);
 
             setValue('');
-            // setNewMessageFlag(prev => !prev);
+            setNewMessageFlag(prev => !prev);
         } 
     }
 
     return (
         <Box className={classes.wrapper}>
-            {/* <Box className={classes.component}>
+            <Box className={classes.component}>
                 {
                     messages && messages.map(message => (
                         <Box className={classes.container} ref={scrollRef}>
@@ -109,7 +110,7 @@ const Messages = ({ person, conversation }) => {
                         </Box>
                     ))
                 }
-            </Box> */}
+            </Box>
             <Footer sendText={sendText} value={value} setValue={setValue} />
         </Box>
     )
