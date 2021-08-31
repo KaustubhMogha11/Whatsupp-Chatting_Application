@@ -92,7 +92,7 @@ const Messages = ({ person, conversation }) => {
             //     text: value
             // })
 
-            // await newMessages(message);
+            await newMessages(message);
 
             setValue('');
             // setNewMessageFlag(prev => !prev);

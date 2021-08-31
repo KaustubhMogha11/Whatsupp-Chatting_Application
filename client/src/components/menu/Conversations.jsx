@@ -34,12 +34,12 @@ const Conversations = ({ text }) => {
         fetchData();
     }, [text]);
 
-    // useEffect(() => {
-    //     socket.current.emit('addUser', account.googleId);
-    //     socket.current.on("getUsers", users => {
-    //         setActiveUsers(users);
-    //     })
-    // }, [account])
+    useEffect(() => {
+        socket.current.emit('addUser', account.googleId);
+        socket.current.on("getUsers", users => {
+            setActiveUsers(users);
+        })
+    }, [account])
 
     return (
         <Box className={classes.component}>
