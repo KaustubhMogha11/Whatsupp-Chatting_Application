@@ -13,10 +13,11 @@ const useStyles = makeStyles({
         display: 'flex'
     },
     leftComponent: {
-        width: '30%'
+        minWidth: 380
     },
     rightComponent: {
-        width: '70%',
+        width: '80%',
+        minWidth: 300,
         height: '100%',
         borderLeft: '1px solid rgba(0, 0, 0, 0.14)'
     }
@@ -54,11 +55,6 @@ const ChatDialog = ({ classes }) => {
                         Object.keys(person).length  ? <ChatBox/> : <EmptyChat />
                     }
                 </Box>
-             {/* <Box className={classname.rightComponent}>
-             <ChatBox/>
-             </Box>   */}
-               
-            
             </Box>
         </Dialog>
     )

@@ -29,7 +29,6 @@ const Conversations = ({ text }) => {
             let data = await getUsers();
             let fiteredData = data.filter(user => user.name.toLowerCase().includes(text.toLowerCase()));
             setUsers(fiteredData);
-            
         }
         fetchData();
     }, [text]);

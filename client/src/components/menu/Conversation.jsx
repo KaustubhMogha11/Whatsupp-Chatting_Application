@@ -43,12 +43,12 @@ const Conversation = ({ user }) => {
     const { setPerson } = useContext(UserContext);
     const { account, socket, newMessageFlag }  = useContext(AccountContext);
 
-    // const [message, setMessage] = useState({});
+    const [message, setMessage] = useState({});
 
     useEffect(() => {
         const getConversationMessage = async() => {
             const data = await getConversation({ sender: account.googleId, receiver: user.googleId });
-            // setMessage({ text: data.message, timestamp: data.updatedAt });
+            setMessage({ text: data.message, timestamp: data.updatedAt });
         }
         getConversationMessage();
     }, [newMessageFlag]);
@@ -58,25 +58,28 @@ const Conversation = ({ user }) => {
         await setConversation({ senderId: account.googleId, receiverId: user.googleId });
     }
 
-    // const getTime = (time) => {
-    //     return time < 10 ? '0' + time : time; 
-    // } 
+    const getTime = (time) => {
+        return time < 10 ? '0' + time : time; 
+    } 
 
     return (
-        <Box className={classes.component} onClick={()=> getUser()}>
+        <Box className={classes.component} onClick={() => getUser()}>
             <Box>
-                <img src={user.imgUrl} alt="display picture" className={classes.displayPicture} />
+                <img src={url} alt="display picture" className={classes.displayPicture} />
             </Box>
             <Box style={{width: '100%'}}>
                 <Box className={classes.container}>
                     <Typography>{user.name}</Typography>
-                    {/* <Typography className={classes.timestamp}>
-                        {getTime(new Date(message.timestamp).getHours())}:{getTime(new Date(message.timestamp).getMinutes())}
-                    </Typography>         */}
+                    { 
+                        message.text && 
+                        <Typography className={classes.timestamp}>
+                            {getTime(new Date(message.timestamp).getHours())}:{getTime(new Date(message.timestamp).getMinutes())}
+                        </Typography>        
+                    }
                 </Box>
-                {/* <Box>
+                <Box>
                     <Typography className={classes.text}>{message.text}</Typography>
-                </Box> */}
+                </Box>
             </Box>
         </Box>
     )

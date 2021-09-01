@@ -6,10 +6,10 @@ import { GoogleLogout } from 'react-google-login';
 
 import { UserContext } from '../../context/UserProvider';
 import { AccountContext } from '../../context/AccountProvider';
-import { clientId } from '../constants/data.js';
+import { clientId } from '../../constants/data.js';
 
 // components
-import InfoDrawer from '../drawer/Drawer';
+import Drawer from '../drawer/Drawer';
 
 const useStyle = makeStyles({
     menuItem: {
@@ -32,7 +32,7 @@ const HeaderMenu = () => {
     const [open, setOpen] = useState(false);
     const [openDrawer, setOpenDrawer] = useState(false);
     
-    const { setAccount, setShowloginButton, showlogoutButton, setShowlogoutButton } = useContext(AccountContext);
+    const { setAccount} = useContext(AccountContext);
     const { setPerson } = useContext(UserContext);
 
 
@@ -89,7 +89,7 @@ const HeaderMenu = () => {
                     </GoogleLogout>
                 </MenuItem>
             </Menu>
-            <InfoDrawer open={openDrawer} setOpen={setOpenDrawer} profile={true} />
+            <Drawer open={openDrawer} setOpen={setOpenDrawer} profile={true} />
         </>
     )
 }
