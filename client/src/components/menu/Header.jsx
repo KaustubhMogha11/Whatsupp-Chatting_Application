@@ -3,7 +3,8 @@ import { Box, makeStyles } from '@material-ui/core';
 import { Chat as MessageIcon } from '@material-ui/icons';
 
 import { AccountContext } from '../../context/AccountProvider.jsx';
-
+import {  IconButton, useColorMode } from '@chakra-ui/react';
+import { FaSun, FaMoon } from 'react-icons/fa';
 //components
 import HeaderMenu from './HeaderMenu';
 import InfoDrawer from '../drawer/Drawer';
@@ -38,22 +39,33 @@ const useStyles = makeStyles({
 
 const Header = () => {
     const classes = useStyles();
-    
+
     const [openDrawer, setOpenDrawer] = useState(false);
 
     const { account } = useContext(AccountContext);
-    
+
     const toggleDrawer = () => {
         setOpenDrawer(true);
     }
+    const {colorMode, toggleColorMode}=useColorMode();
 
     return (
         <>
             <Box className={classes.header}>
-                <img src={account.imageUrl} className={classes.avatar} onClick={()=>toggleDrawer()} />
+                <img src={account.imageUrl} className={classes.avatar} onClick={() => toggleDrawer()} />
                 <Box className={classes.chatIcons}>
+                    {/* <Box display='flex' p={6}>
+                        <IconButton
+                    
+                            icon={colorMode=='light' ? <FaSun/> : <FaMoon/>}
+                            isRound={true}
+                            mr={5}
+                            onClick={toggleColorMode}
+                        />
+
+                    </Box> */}
                     <MessageIcon />
-                    <HeaderMenu/>
+                    <HeaderMenu />
                 </Box>
             </Box>
             <InfoDrawer open={openDrawer} setOpen={setOpenDrawer} profile={true} />

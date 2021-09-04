@@ -1,0 +1,16 @@
+version: "3.3"
+
+services:
+    mongodb:
+        image : mongo
+        container_name: mongodb
+        # environment:
+        #     - PUID=1000
+        #     - PGID=1000
+        volumes:
+        - ./config/mongodb/db:/data/db   
+        ports:
+        - 27017:27017
+        restart: unless-stopped
+        extra_hosts:
+        - "dockerhost:127.0.0.1"

@@ -6,7 +6,7 @@ import { GoogleLogout } from 'react-google-login';
 
 import { UserContext } from '../../context/UserProvider';
 import { AccountContext } from '../../context/AccountProvider';
-import { clientId } from '../../constants/data.js';
+import { clientId } from '../constants/data.js';
 
 // components
 import Drawer from '../drawer/Drawer';
