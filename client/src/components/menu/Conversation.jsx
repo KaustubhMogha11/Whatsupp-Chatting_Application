@@ -45,13 +45,13 @@ const Conversation = ({ user }) => {
 
     const [message, setMessage] = useState({});
 
-    useEffect(() => {
-        const getConversationMessage = async() => {
-            const data = await getConversation({ sender: account.googleId, receiver: user.googleId });
-            setMessage({ text: data.message, timestamp: data.updatedAt });
-        }
-        getConversationMessage();
-    }, [newMessageFlag]);
+    // useEffect(() => {
+    //     const getConversationMessage = async() => {
+    //         const data = await getConversation({ sender: account.googleId, receiver: user.googleId });
+    //         setMessage({ text: data.message, timestamp: data.updatedAt });
+    //     }
+    //     getConversationMessage();
+    // }, [newMessageFlag]);
 
     const getUser = async () => {
         setPerson(user);
@@ -70,12 +70,12 @@ const Conversation = ({ user }) => {
             <Box style={{width: '100%'}}>
                 <Box className={classes.container}>
                     <Typography>{user.name}</Typography>
-                    { 
+                    {/* { 
                         message.text && 
                         <Typography className={classes.timestamp}>
                             {getTime(new Date(message.timestamp).getHours())}:{getTime(new Date(message.timestamp).getMinutes())}
                         </Typography>        
-                    }
+                    } */}
                 </Box>
                 <Box>
                     <Typography className={classes.text}>{message.text}</Typography>

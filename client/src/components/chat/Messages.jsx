@@ -13,8 +13,9 @@ import Footer from './Footer';
 
 const useStyles = makeStyles({
     wrapper: {
-        backgroundImage: `url(${'https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png'})`,
-        // height: 'calc(100% - 114px)',
+        // backgroundImage: `url(${'https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png'})`,
+        background:'#F2F5F9',
+        // height: '100%',
         backgroundSize: '50%'
     },
     footer: {
@@ -25,7 +26,7 @@ const useStyles = makeStyles({
         // bottom: 0
     },
     component: {
-        height: '79vh',
+        height: '80vh',
         overflowY: 'scroll'
     },
     container: {

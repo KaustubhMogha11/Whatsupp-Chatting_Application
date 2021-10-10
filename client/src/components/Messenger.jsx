@@ -9,15 +9,19 @@ import ChatDialog from './ChatDialog';
 const useStyles = makeStyles({
     component: {
         height: '100vh',
-        background: '#DCDCDC'
+        // background: '#DCDCDC'
+        background:'#f3f6fa',
     },
     header: {
-        background: '#128C7E',
+        // background: '#128C7E',
+        background:'#212e42',
         height: 115,
         boxShadow: 'none'
     },
     loginHeader: {
-        background: '#00bfa5',
+        // background: '#00bfa5',
+         background:'#212e42',
+
         height: 200,
         boxShadow: 'none'
     }

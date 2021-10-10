@@ -8,7 +8,8 @@ import Profile from './Profile';
 
 const useStyles = makeStyles({
   header: {
-    background: '#00bfa5',
+    // background: '#00bfa5',
+    background:'#2c698d',
     height: 97,
     color: '#FFFFFF',
     display: 'flex',
@@ -20,6 +21,7 @@ const useStyles = makeStyles({
   },
   component: {
     background: '#ededed',
+    // background:'F2F5F9',
     height: '85%'
   } 
 });

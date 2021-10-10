@@ -14,7 +14,8 @@ const useStyles = makeStyles({
         wordBreak: 'break-word'
     },
     own: {
-        background: '#dcf8c6',
+        // background: '#dcf8c6',
+        background:'#212e42',
         padding: 5,
         maxWidth: '60%',
         width: 'fit-content',
@@ -25,11 +26,17 @@ const useStyles = makeStyles({
     },
     text: {
         fontSize: 14,
-        padding: '0 25px 0 5px'
+        padding: '0 25px 0 5px',
+        color:'#f3f6fa'
+    },
+    text1: {
+        fontSize: 14,
+        padding: '0 25px 0 5px'     
     },
     time: {
         fontSize: 10,
-        color: '#919191',
+        // color: '#919191',
+        color:'#f3f6fa',
         marginTop: 6,
         wordBreak: 'keep-all',
         marginTop: 'auto'
@@ -46,7 +53,7 @@ const Message = ({ message }) => {
 
     return (
         <Box className={account.googleId === message.sender ? classes.own : classes.wrapper}>
-            <Typography className={classes.text}>{message.text}</Typography>
+            <Typography className={account.googleId === message.sender ? classes.text : classes.text1}>{message.text}</Typography>
             <Typography className={classes.time}>
                 {formatDate(new Date(message.createdAt).getHours())}:{formatDate(new Date(message.createdAt).getMinutes())}
             </Typography>
