@@ -79,7 +79,7 @@ const LoginDialog = ({ classes }) => {
         >
             <Box className={classname.component}>
                 <Box className={classname.dialog}>
-                    <Typography className={classname.title}>To use WhatsApp on your computer:</Typography>
+                    <Typography className={classname.title}>To use Whatsupp on your computer:</Typography>
                     <List className={classname.list}>
                         <ListItem>1. Open Whatsupp on your phone</ListItem>
                         <ListItem>2. Tap Menu Settings and select Whatsupp Web</ListItem>
